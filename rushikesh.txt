@@ -2,45 +2,191 @@ Rushikesh jagadale
 
 
 
--- 1) how to create database
+CREATE DATABASE rushikesh;
+
+-- -----------------------------------------SQL--------------------------------------------
+
+-- SQL it is a structured query language
+
+-- DATA 
+-- information, content, fact that can be measured
+
+-- Data is everywhere 
+
+-- types of data(computer engineering)
+-- 1)Structured data 2)Unstructured data 3)Semistructured data
+
+-- 1)structured data 
+-- data is stored in rows and column format (tabular data)
+-- ex. csv, excel, sql
+
+-- 2)Unstructured data
+-- may be in any format (excluding  tabular)
+-- may be in bytes
+-- ex. image, audio, video, text
+
+-- 3)Semistructured data
+-- combination of structured and unstructured data
+-- ex. documents, dictionary (key-value pair), graphs
+
+-- If data is in tabular format (structured) the column contains which types of data
+-- types of data(tabular/stats)
+
+-- 1)Quantitative data...Numeric
+-- 2)Qualitative data...categorical
+
+-- 1)Quantitative data...Numeric
+-- data in number/numeric format
+-- ex. Height, weight, pressure, ph, hb, distance,
+-- price,amount,sales,profit,temp,stockmarket
+-- BMI,gst,marks,alcohol,mileage
+
+-- types of Quantitative data...Numeric
+-- a)Discrete b)Continuous
+
+-- a) Discrete
+-- finite number
+-- always integer
+-- ex. no of cars, no of bank account
+
+-- b)Continuous
+-- values may be anything in a given range 
+-- int/float 
+-- ex.Height,weight,pressure,ph,hb,distance,
+-- price,amount,sales,profit,temp,stockmarket
+-- BMI,gst,marks,alcohol, mileage
+-- aggregate function
+-- sum,min,max,avg,count
+-- Continuous data follows normal distribution/Gaussian distribution 
+-- most of the data lies near the mean value(bell-shaped curve)
+
+
+-- Qualitative...categorical
+-- mostly text but sometimes may be numeric
+-- fixed not categories 
+-- gender,blood group,party name,rating,grade, quality,
+-- programming lang, colors,month,year,quarter,days
+-- result 
+
+-- types of qualitative ...categorical
+-- a) nominal b)Ordinal
+
+-- a)Nominal
+-- categories have high values 
+-- ex,gender,blood group,party name,year,quarter,days
+
+-- b)Ordinal
+-- meaningfully ordered
+-- rating,grade,quality
+
+
+
+-- DATA 
+-- DATABASE>>collection of data>>it's like a folder 
+-- if database is software(server-client)>>DBMS(database management system)
+-- DBMS is a software that is used to store,handle,manipulate,fetch data
+
+-- types of DBMS 
+-- 1) RDBMS >> Relational DBMS
+-- 2)Non RDBMS>> NON relational DBMS>> NO SQL DATABASE
+
+-- 1) RDBMS >> Relational DBMS
+-- RDBMS is a software used to store structured (tabular) data which has a pre-defined relationship
+-- ex. MYSQL, POSTGRESQL, Oracle, MS-SQL, server, SQLITE
+
+-- 2)Non RDBMS>> NON relational DBMS>> NO SQL DATABASE
+-- used to store semistructured data 
+-- ex. MongoDB, Redis
+
+-- SQL (Structured query lang)
+-- programming language
+-- language used to handle relational database
+
+-- SQL concepts 
+-- SQL is a case-insensitive programming language
+
+-- Identifier 
+-- naming system
+-- used to identify database name,column,table,view,function,stored procedure
+-- trigger $ variable
+-- Rules
+-- An identifier can contain 
+-- A-Z
+-- a-z
+-- 0-9
+-- _(underscore)
+-- can use space >> ``
+-- can use keywords if >> ``
+-- we cannot use special symbols
+
+-- Keywords
+-- special reserved words
+-- it has a special meaning
+-- 1000+ keywords
+
+-- Data types
+-- 1)Numeric >> integer,float
+-- Integer >> WHOLE NUMBER Ex ,0, -2 >> roll no
+-- Float >> which contain decimal point ex 56.89, 34.00 >> salary,distance
+-- NUMERIC DATA TYPES IN SQL
+-- INT,TINYINT,FLOAT,DECIMAL(M,D),DOUBLE(M,D)
+
+-- 2)String >> collection of characters
+-- character means everything >> alphabets,digits,special symbols,space
+-- string should be written in single quotes
+-- 'avi' , '123'
+-- Gender,Color
+
+-- STRING DATA TYPES IN SQL
+-- CHAR(size),VARCHAR(size),TEXT,LONGTEXT
+
+-- 3)date and time
+-- date and time-related
+-- date and time should be written in single quotes 
+-- Ex. '2024-07-04', '12:15:25'
+-- order date
+-- DATE AND TIME DATA TYPES IN SQL
+-- DATE,TIME,DATETIME,TIMESTAMP,YEAR
+
+
+-- -------------------------------SQL QUERIES-------------------------------------------
+
+-- 1) how to create a database
 -- syntax
 -- CREATE DATABASE database_name;
 
-CREATE DATABASE atilic_db;
+CREATE DATABASE atlic_db;
 
 
--- 2) show databases
+-- 2)Show databases
 -- syntax
--- SHOW DATABASE;
+-- SHOW DATABASES;
 
 SHOW DATABASES;
 
--- 3) how to use specific database
+-- 3)how to use a specific database
 -- syntax
--- USE databasename;
+-- USE database_name
 
-USE atilic_db;
+USE atlic_db;
 
--- 4) how to create table in database
-
-# SYNTAX
-/* 
+-- 4)how to create a table in database
+-- syntax
+/*
 CREATE TABLE table_name(
-col_name1 DATATYPE(size) CONSTRAINTS,
-col_name2 DATATYPE(size) CONSTRAINTS,
-col_name3 DATATYPE(size) CONSTRAINTS
+col_name1 DATATYPE(size)CONSTRAINTS,
+col_name2 DATATYPE(size)CONSTRAINTS,
+col_name3 DATATYPE(size)CONSTRAINTS
 );
 
 */
 
 CREATE TABLE student(
-roll_num INT PRIMARY KEY,
+roll_no INT PRIMARY KEY,
 stu_name VARCHAR(40),
 marks FLOAT,
 reg_date DATE
 );
-
--- assignment >> employee 
 
 CREATE TABLE emp(
 emp_id INT PRIMARY KEY,
@@ -49,13 +195,369 @@ salary FLOAT,
 joining_date DATE
 );
 
+CREATE TABLE doctors (
+    doctor_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    specialization VARCHAR(100),
+    phone_number VARCHAR(15),
+    email VARCHAR(100),
+    date_of_birth DATE,
+    gender VARCHAR(10),
+    address VARCHAR(255),
+    city VARCHAR(50),
+    state VARCHAR(50),
+    postal_code VARCHAR(10),
+    country VARCHAR(50),
+    license_number VARCHAR(50),
+    hire_date DATE,
+    department VARCHAR(100)
+);
 
--- 5) how to describe table
--- syntax
--- DESC/DESCRIBE  table_name;
-
+CREATE TABLE farmers (
+    farmer_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(15),
+    email VARCHAR(100),
+    date_of_birth DATE,
+    gender VARCHAR(10),
+    address VARCHAR(255),
+    city VARCHAR(50),
+    state VARCHAR(50),
+    postal_code VARCHAR(10),
+    country VARCHAR(50),
+    farm_size DECIMAL(10, 2),  -- Size of the farm in acres or hectares
+    farm_type VARCHAR(100),  -- Type of farm (e.g., Dairy, Crop, Poultry)
+    registration_date DATE
+);
 
 DESC student;
+DESC emp;
+DESC doctors;
+DESC farmers;
+
+SELECT * FROM farmers;
+
+-- 6) Show all tables
+-- syntax 
+-- SHOW TABLES;
+ 
+USE atlic_db;
+ 
+SHOW TABLES;
+
+-- 7)Show data from table (how to fetch data from table)
+-- syntax
+-- SELECT * FROM table_name;
+ 
+SELECT * FROM student;
+
+-- 8)how to insert data into table
+-- syntax
+-- INSERT INTO table_name(col1,col2,col3,...) VALUES(value1,value2,value3,...);
+
+-- concept-1 INSERT SINGLE RECORD
+ 
+INSERT INTO student(roll_no,stu_name,marks,reg_date) VALUES(11,'avi',67.89,'2024-07-08');
+ 
+INSERT INTO student(roll_no,stu_name,marks,reg_date) VALUES(12,'rushi',64.65,'2022-02-18');
 
 
--- 6) show all tables
+SELECT *FROM student;
+
+-- concept-2 INSERT MULTIPLE RECORDS AT A TOME
+
+INSERT INTO student(roll_no, stu_name, marks, reg_date) 
+VALUES (13, 'sana', 89.45, '2024-08-08'),(14, 'suraj', 88.56, '2024-08-05');
+
+SELECT * FROM student;
+
+-- Concept-3 INSERT VALUES INTO SPECIFIC COLUMN
+
+INSERT INTO student(roll_no,stu_name) VALUES(15,'RAM');
+
+SELECT * FROM student;
+
+-- Concept-4 INSERT VALUES WITHOUT SPECIFYING COLUMN NAME
+
+INSERT INTO student VALUES(16, 'abc', 76.00, '2024-08-05');
+
+SELECT * FROM student;
+
+INSERT INTO student VALUES(17, 'bkl', null, '2024-08-08');
+
+SELECT * FROM student;
+
+-- concept-5 SINGLEQUOTE PROBLEM
+-- k'kwagh
+
+INSERT INTO student VALUES(18, 'k''kwagh', null, '2024-08-08');
+INSERT INTO student VALUES(19, 'R\RJ', null, '2024-08-08');
+
+SELECT * FROM student;
+
+--
+
+-- 1) Constrints
+-- SET OF RULES
+-- restriction on column
+
+-- Constraints in SQL are rules or conditions applied to a table or a 
+-- column that enforce data integrity and ensure the consistency 
+-- and accuracy of the data in the database. 
+
+-- NOT NULL
+-- UNIQUE /UNIQUE KEY
+-- DEFAULT
+-- CHECK 
+-- PRIMARY KEY
+-- AUTO INCREMENT
+-- FOREIGN KEY
+-- COMPOSITY KEY
+
+
+-- SYNTAX
+-- CREATE TABLE table_name(
+-- col_name1 DATA_TYPE(SIZE) CONSTRAINTS,
+-- col_name1 DATA_TYPE(SIZE) CONSTRAINTS,
+-- col_name1 DATA_TYPE(SIZE) CONSTRAINTS
+-- )
+
+
+
+CREATE DATABASE constraints_db;
+USE constraints_db;
+
+-- 1) NOT NULL
+-- A NOT NULL constraint ensures that a column cannot contain 
+-- NULL values.
+-- It enforces that the column must have a value for each row
+
+
+CREATE TABLE emp1(
+emp_id INT NOT NULL, 
+emp_name VARCHAR(40) NOT NULL,
+emp_salary FLOAT
+);
+
+INSERT INTO emp1 VALUES(1,'Gauravi',25000.00);
+
+SELECT*FROM emp1;
+
+INSERT INTO emp1(emp_id,emp_name) VALUES(2,'Payal');
+SELECT*FROM emp1;
+
+DESC emp1;	
+
+-- 2) DEFAULT
+-- a default constraint is used to specify a default value 
+-- for a column in a table. 
+-- If an INSERT operation does not provide a value for a column 
+-- with a default constraint, the default value will be used instead.
+
+-- SYNTAX
+-- CREATE TABLE table_name (
+ --    column1 datatype DEFAULT default_value,
+ --    column2 datatype DEFAULT default_value,
+ --    -- other columns and constraints
+--    );
+
+CREATE TABLE emp2(
+emp_id INT NOT NULL,
+emp_name VARCHAR(40),
+is_active VARCHAR(20) DEFAULT'active',
+isactive BOOLEAN DEFAULT(true)
+);
+
+INSERT INTO emp2(emp_id,emp_name) VALUES(1,'MOSS');
+INSERT INTO emp2(emp_id,emp_name) VALUES(2,'TAKLI');
+SELECT * FROM emp2;
+
+
+
+-- 3)  CHECK 
+-- CHECK 
+-- A check constraint is used to define a condition that 
+-- the values in a column must satisfy.
+-- It is used to limit the range of acceptable values for a column.
+-- For example, you can use a check constraint to enforce 
+-- that an age column must be greater than 18
+
+CREATE TABLE student1(
+roll_no INT,
+name VARCHAR(40),
+age INT CHECK(age>=18 AND age<=50)
+);
+INSERT INTO student1 VALUES(17,'Anuja',19);
+INSERT INTO student1 VALUES(18,'vaishnavi',19);
+INSERT INTO student1 VALUES(19,'Pooja',19);
+
+SELECT * FROM student1;
+DESC student1;
+
+#4) --UNIQUE KEY/UNIQUE
+
+-- used to set column with unique values
+-- A unique constraint ensures that the values in the column(s) 
+-- specified have unique values across all the records in the table. 
+-- a unique constraint allows NULL values 
+-- excluding the special case of composite unique constraints.
+
+-- Rules of unique key
+-- 1) allows unique values (no duplicate values)
+-- 2) can contain null values
+-- 3) can use unique key for multiple columns in a single table
+
+
+
+CREATE TABLE student2(
+roll_no INT UNIQUE KEY,
+name VARCHAR(40),
+mobile_no BIGINT UNIQUE KEY
+);
+
+INSERT INTO student2 VALUES(16,'Payal',9309759211);
+INSERT INTO student2 VALUES(17,'Anuja',9689328215);
+INSERT INTO student2 VALUES(18,'vaishnavi',8830438215);
+INSERT INTO student2 VALUES(19,'Pooja',7070707070);
+INSERT INTO student2 VALUES(20,'MOSS',9307849268);
+
+UPDATE student2
+SET name = 'MOSS', mobile_no = 9307849268
+WHERE roll_no = 20;
+
+UPDATE student2
+SET roll_no = 21
+WHERE roll_no = 18 AND name = 'vaishnavi';
+
+SELECT * FROM student2;
+DESC student2;
+
+
+-- 5) PRIMARY KEY
+-- PRIMARY KEY Constraint:
+-- A primary key constraint is used to uniquely identify each row  in a table.
+-- Rules
+-- the primary key column contain a unique value for each record, 
+-- it cannot contain NULL values.
+-- Each table can have only one primary key.
+
+
+USE constraints_db;
+
+CREATE TABLE student3(
+roll_no INT PRIMARY KEY,
+stud_name VARCHAR(40),
+marks FLOAT
+);
+
+DESC student3;
+
+INSERT INTO student3 VALUES(01,'Ishwari',35.00);
+INSERT INTO student3 VALUES(02,'Shraddha',37.00),(03,'Shrushti',91.00);
+
+SELECT * FROM student3;
+
+INSERT INTO student3 VALUES(04,'pallavi',11.00);
+INSERT INTO student3 VALUES(05,'aarti',78.00);
+
+CREATE TABLE student4(
+roll_no INT,
+stud_name VARCHAR(40),
+marks FLOAT,
+PRIMARY KEY(roll_no)
+);
+
+
+
+# 6) -- AUTO INCREMENT
+-- used to generate unique number in a sequence
+-- Auto-increment constraints are used to automatically generate 
+-- unique, sequential values for a column when new rows are 
+-- inserted into a table. 
+-- This feature is especially useful for creating primary key 
+-- values to uniquely identify each row in a table.
+-- Rules
+-- Primary key
+-- numeric data type
+-- sequential values
+-- uniqueness
+
+CREATE TABLE student5(
+roll_no INT auto_increment,
+stud_name VARCHAR(40),
+marks FLOAT,
+PRIMARY KEY (roll_no)
+);
+
+DESC student5;
+INSERT INTO student5(stud_name,marks)VALUES('Bhagat',33.00),('madhuri',27.00),('ben_ten',88.00);
+SELECT *FROM student5;
+
+# 1) ALTER TABLE Student5 AUTO_INCREMENT=101;
+# 2) Insert first value manually
+
+INSERT INTO student5 VALUES(7,'GWEN',77.70);
+SELECT *FROM student5;
+INSERT INTO student5(stud_name,marks) VALUES('Granpa max',99.70);
+SELECT *FROM student5;
+
+INSERT INTO student5 VALUES(null,'vilgax',12.70);
+SELECT *FROM student5;
+
+-- 7) COMPOSITE KEY
+-- primary key is combination of two columns
+
+-- In MySQL, a composite key is a key that consists of two or more 
+-- columns in a table. This type of key is used when a single 
+-- column cannot uniquely identify a record, but a combination 
+-- of columns can 
+
+CREATE TABLE student6(
+course_id INT,
+stud_id INT,
+stud_name VARCHAR(50),
+course_name VARCHAR(50),
+trainer_name VARCHAR(50),
+PRIMARY KEY (course_id,stud_id)
+);
+
+INSERT INTO student6 VALUES(101,12,'prasad','Data Analytics','rushi');
+INSERT INTO student6 VALUES(102,12,'PRASAD','Data Science','Shubham'),
+(101,13,'Dadubhai','Data Analytics','rushi'),
+(102,13,'Dadubhai','Data Science','Shubham');
+
+DESC student6;
+SELECT * FROM student6;
+-- INSERT INTO student6 VALUES(102,12,'PRASAD','Data Science','Shubham'); dublicate values not allowed in primary key
+
+-- DATA TYPES 
+-- 1) Numeric Data Types:
+-- 2) Character Data Types(String)
+-- 3) Date and Time Data Types:
+-- 4) Boolean Data Type:
+-- 5) Binary Data Types:
+-- 6) Enumerated Data Type:
+
+-- 1) Numeric Data Types:
+-- integer >> its a whole number 
+-- INT,BIGINT,TINYINT(size),SMALLINT,MIDIUMINT
+
+-- float >> which contain decimal points 
+-- FLOAT,DECIMAL(M,D),DOUBLE(M,D),NUMERIC(M,D)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
